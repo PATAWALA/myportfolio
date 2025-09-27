@@ -72,7 +72,7 @@ export default function About() {
             onClick={() => setIsOpen(false)}
           >
             <motion.img
-              src="/profil.png"
+              src="/myprofil.png"
               alt="Photo agrandie"
               className="max-w-4xl max-h-[90vh] rounded-full shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
