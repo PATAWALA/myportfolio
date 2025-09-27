@@ -1,6 +1,6 @@
 export default function Head() {
-  const siteUrl = "https://myportfolio-sable-chi-93.vercel.app/"; 
-  const socialImage = `${siteUrl}/social-preview.png`;
+  const siteUrl = "https://myportfolio-sable-chi-93.vercel.app";
+  const socialImage = `${siteUrl}/socialpreview.png`; 
 
   return (
     <>

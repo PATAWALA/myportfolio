@@ -100,7 +100,7 @@ export default function Projects() {
 
       <div className="flex justify-center mt-8 md:mt-10">
         <a
-          href="/contact"
+          href="#contact"
           className="inline-flex items-center gap-2 px-6 py-2.5 md:py-3 bg-green-600 dark:bg-green-500 text-white rounded-lg shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
         >
           Me contacter directement <FaArrowRight />

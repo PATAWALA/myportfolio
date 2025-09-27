@@ -64,10 +64,12 @@ export default function Page() {
 
           <div className="w-full md:w-1/2 mt-6 md:mt-0 text-center md:text-left space-y-4">
             <p className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl leading-relaxed">
-              Bonjour et bienvenue sur mon portfolio ! Vous cherchez quelqu’un pour créer des applications rapides et efficaces ? Vous êtes au bon endroit 🚀.
+              Bonjour et bienvenue sur mon portfolio ! 
             </p>
             <p className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl leading-relaxed">
-              Découvrez mes projets et contactez-moi pour donner vie à vos idées.
+              Pas besoin de longs discours. Vous cherchez quelqu’un capable de créer une application ou un site moderne pour mieux vendre vos services ?
+              Une solution simple à utiliser pour vos clients, mais suffisamment puissante pour booster votre activité ?
+              Alors vous êtes au bon endroit ✅
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-4">

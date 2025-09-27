@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { FaUser } from "react-icons/fa"
+import { FaUser,FaArrowRight } from "react-icons/fa"
 
 export default function About() {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,8 +46,18 @@ export default function About() {
             et <span className="font-semibold">React Native</span> pour le mobile.
           </p>
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            Vous voulez des applications faciles à utiliser, rapides et légères, mais puissantes ? Je crée des sites web, apps mobiles ou systèmes adaptés à vos besoins. Parcourez mes réalisations et contactez-moi pour vos projets.
+            Je suis développeur passionné, et mon rôle est de donner vie à vos idées à travers des sites web modernes, des applications mobiles simples à utiliser, et même des boutiques en ligne pour vendre vos produits facilement.
+            Vous n’avez pas besoin d’être expert en informatique pour travailler avec moi : j’explique chaque étape de manière claire et je construis des solutions qui vous ressemblent. Que vous soyez une entreprise, un indépendant ou que vous vouliez simplement partager votre projet avec le monde, je suis là pour vous aider.
           </p>
+                {/* Bouton Me contacter */}
+                <div className="flex justify-center mt-12">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 dark:bg-green-500 text-white rounded-lg shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
+                  >
+                    Me contacter <FaArrowRight />
+                  </a>
+                </div>
         </div>
       </motion.div>
 
