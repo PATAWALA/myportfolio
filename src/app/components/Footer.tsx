@@ -17,11 +17,15 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      // padding-bottom large + safe-area pour être sûr que rien ne soit caché par le BottomNav
       className="bg-gray-100 dark:bg-gray-900 pt-6 text-center"
       style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 4.5rem)" }}
     >
       <p className="text-gray-600 dark:text-gray-300 mb-4">© 2025 Abdoulaye PATAWALA. Tous droits réservés.</p>
+
+      {/* Texte introductif avant les liens sociaux */}
+      <p className="text-gray-700 dark:text-gray-300 mb-4 font-medium">
+        Contactez-moi via ces réseaux sociaux :
+      </p>
 
       <div className="max-w-xl mx-auto px-4">
         {/* Mobile: 2 colonnes; Desktop: ligne */}

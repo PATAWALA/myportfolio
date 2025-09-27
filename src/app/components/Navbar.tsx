@@ -1,20 +1,18 @@
 "use client"
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { Link as ScrollLink } from "react-scroll"
 import { useTheme } from "./ThemeProvider"
 import { FaMoon, FaSun } from "react-icons/fa"
 
 export default function Navbar() {
-  const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
 
   const links = [
-    { name: "Accueil", href: "/" },
-    { name: "À propos", href: "/about" },
-    { name: "Projets", href: "/projects" },
-    { name: "Compétences", href: "/skills" },
-    { name: "Contact", href: "/contact" },
+    { name: "Accueil", to: "home" },
+    { name: "À propos", to: "about" },
+    { name: "Projets", to: "projects" },
+    { name: "Compétences", to: "skills" },
+    { name: "Contact", to: "contact" },
   ]
 
   return (
@@ -23,31 +21,34 @@ export default function Navbar() {
         
         {/* Logo */}
         <div className="text-xl font-bold text-blue-600 dark:text-blue-400 cursor-pointer">
-          <Link href="/">Abdoulaye PATAWALA</Link>
+          <ScrollLink 
+            to="home" 
+            smooth={true} 
+            duration={500} 
+            offset={-80} 
+            spy={true} 
+            className="cursor-pointer"
+          >
+            Abdoulaye PATAWALA
+          </ScrollLink>
         </div>
 
         {/* Menu desktop */}
         <div className="hidden md:flex space-x-8 items-center">
-          {links.map((link, i) => {
-            const isActive = pathname === link.href
-            return (
-              <div
-                key={i}
-                className={`relative font-medium transition-colors duration-200 ${
-                  isActive
-                    ? "text-blue-600 dark:text-blue-400"
-                    : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                }`}
-              >
-                <Link href={link.href}>
-                  {link.name}
-                  {isActive && (
-                    <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-600 dark:bg-blue-400 rounded-full" />
-                  )}
-                </Link>
-              </div>
-            )
-          })}
+          {links.map((link, i) => (
+            <ScrollLink
+              key={i}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              offset={-80}   // pour compenser la hauteur de la navbar
+              spy={true}     // détecte la section active
+              activeClass="text-blue-600 dark:text-blue-400 font-semibold" // style actif
+              className="cursor-pointer font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
+            >
+              {link.name}
+            </ScrollLink>
+          ))}
 
           {/* Dark mode desktop */}
           <button
@@ -62,9 +63,8 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile: profil + dark mode */}
+        {/* Mobile: dark mode */}
         <div className="flex md:hidden items-center gap-4">
-          {/* Dark mode */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:scale-110 transition"
