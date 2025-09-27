@@ -30,7 +30,7 @@ export default function About() {
         {/* Photo */}
         <div className="md:w-1/2 flex justify-center">
           <img
-            src="/profile.png"
+            src="/monprofil.png"
             alt="Abdoulaye PATAWALA"
             className="w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-pointer 
                        hover:scale-105 hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)] 
