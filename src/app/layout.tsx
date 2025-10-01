@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     images: [socialImage],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/myicon.ico",
   },
   themeColor: "#1E40AF",
 };
