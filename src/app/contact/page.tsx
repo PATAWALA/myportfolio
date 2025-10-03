@@ -99,7 +99,7 @@ export default function Contact() {
             onSubmit={handleSubmit}
             className="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg flex flex-col gap-4"
           >
-            <p className="text-gray-600 dark:text-gray-300 mb-6 text-justify">
+            <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg text-justify">
               Envoyez-moi un message en remplissant ce formulaire. N'hésitez pas à détailler vos projets ou besoins, cela m'aidera à vous répondre de façon personnalisée.
             </p>
 

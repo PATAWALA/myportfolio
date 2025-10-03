@@ -45,7 +45,7 @@ export default function About() {
             Je suis <span className="font-semibold">Fullstack Developer</span> spécialisé en <span className="font-semibold">React, Next.js, Node.js</span> pour le web
             et <span className="font-semibold">React Native</span> pour le mobile.
           </p>
-          <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl leading-relaxed">
             Passionné par le développement, je transforme vos idées en sites web modernes, applications mobiles intuitives et boutiques en ligne performantes. 
             Je rends chaque étape claire et accessible, que vous soyez entreprise, indépendant ou porteur de projet.
           </p>

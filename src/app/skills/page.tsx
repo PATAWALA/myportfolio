@@ -51,8 +51,8 @@ export default function Skills() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 * i, duration: 0.5 }}
           >
-            <h3 className="text-xl font-semibold text-blue-700 dark:text-blue-300 mb-2">{skill.name}</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">{skill.desc}</p>
+            <h3 className="font-semibold text-lg sm:text-xl text-blue-700 dark:text-blue-300 mb-2">{skill.name}</h3>
+            <p className="text-gray-700 dark:text-gray-300 text-lg">{skill.desc}</p>
           </motion.div>
         ))}
       </motion.div>
