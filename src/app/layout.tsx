@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import BottomNav from "./components/BottomNav";
 import ThemeProvider from "./components/ThemeProvider";
+import ScrollButton from "./components/ScrollButton";
 import "./globals.css";
 
 const siteUrl = "https://myportfolio-sable-chi-93.vercel.app";
 const socialImage = `${siteUrl}/monprofil.png`;
 
 export const metadata: Metadata = {
-  title: "Abdoulaye PATAWALA - Portfolio Développeur Fullstack",
+  title: "Abdoulaye PATAWALA | Fullstack Developer",
   description:
     "Portfolio de Abdoulaye PATAWALA, développeur Fullstack spécialisé en React, Next.js, Node.js et React Native.",
   metadataBase: new URL(siteUrl),
@@ -70,15 +70,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Navbar fixe */}
           <Navbar />
 
-          {/* BottomNav uniquement mobile */}
-          <div className="md:hidden">
-            <BottomNav />
-          </div>
-
           {/* Main: padding-top = hauteur navbar */}
           <main className="flex-1 pt-[64px] md:pt-[64px] md:pb-0">{children}</main>
 
-          {/* Footer direct sans balise supplémentaire */}
+          {/* Bouton flèche haut/bas */}
+          <ScrollButton />
+
+          {/* Footer */}
           <Footer />
         </ThemeProvider>
       </body>

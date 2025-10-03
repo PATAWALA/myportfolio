@@ -67,7 +67,7 @@ export default function Contact() {
             href="https://wa.me/22953173035"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-3 bg-green-500 dark:bg-green-600 text-white rounded-lg shadow hover:bg-green-600 dark:hover:bg-green-700 transition w-full md:w-auto justify-center"
+            className="flex items-center gap-3 px-6 py-3 bg-green-500 dark:bg-green-600 text-white rounded-full shadow hover:bg-green-600 dark:hover:bg-green-700 transition w-full md:w-auto justify-center"
           >
             <FaWhatsapp size={20} /> M'écrire sur WhatsApp
           </a>
@@ -76,7 +76,7 @@ export default function Contact() {
             href="https://web.facebook.com/profile.php?id=61579343805169"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg shadow hover:bg-blue-600 dark:hover:bg-blue-700 transition w-full md:w-auto justify-center"
+            className="flex items-center gap-3 px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-full shadow hover:bg-blue-600 dark:hover:bg-blue-700 transition w-full md:w-auto justify-center"
           >
             <FaFacebook size={20} /> M'écrire sur Facebook
           </a>
@@ -85,7 +85,7 @@ export default function Contact() {
             href="https://www.linkedin.com/in/abdoulaye-patawala-84b138381"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-3 bg-blue-700 dark:bg-blue-800 text-white rounded-lg shadow hover:bg-blue-800 dark:hover:bg-blue-900 transition w-full md:w-auto justify-center"
+            className="flex items-center gap-3 px-6 py-3 bg-blue-700 dark:bg-blue-800 text-white rounded-full shadow hover:bg-blue-800 dark:hover:bg-blue-900 transition w-full md:w-auto justify-center"
           >
             <FaLinkedin size={20} /> M'écrire sur LinkedIn
           </a>
@@ -131,7 +131,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={loading}
-              className={`mt-4 flex items-center justify-center gap-2 bg-blue-600 dark:bg-blue-500 text-white py-3 rounded-lg shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition ${
+              className={`mt-4 flex items-center justify-center gap-2 bg-blue-600 dark:bg-blue-500 text-white py-3 rounded-full shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition ${
                 loading ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >

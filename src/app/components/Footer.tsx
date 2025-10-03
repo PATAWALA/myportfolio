@@ -41,7 +41,7 @@ export default function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-200 dark:bg-gray-800 rounded-lg text-sm text-gray-700 dark:text-gray-300 font-medium"
+                className="flex items-center justify-center gap-2 px-3 py-2 bg-gray-200 dark:bg-gray-800 rounded-full text-sm text-gray-700 dark:text-gray-300 font-medium"
               >
                 <span className="text-lg">{s.icon}</span>
                 <span>{s.name}</span>

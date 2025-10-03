@@ -21,14 +21,15 @@ export function useTheme() {
 export default function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark") // par défaut dark
 
-  // Charger le thème initial (localStorage ou préférence système)
+  // Charger le thème initial
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") as Theme | null
+
     if (storedTheme) {
       setTheme(storedTheme)
-      document.documentElement.classList.toggle("dark", storedTheme === "dark")
+      document.documentElement.classList.remove("light", "dark") // 🔥 nettoie
+      document.documentElement.classList.add(storedTheme) // 🔥 applique bien
     } else {
-      // Par défaut dark si rien n'est stocké
       setTheme("dark")
       document.documentElement.classList.add("dark")
       localStorage.setItem("theme", "dark")
@@ -39,7 +40,10 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
   const toggleTheme = () => {
     const newTheme: Theme = theme === "light" ? "dark" : "light"
     setTheme(newTheme)
-    document.documentElement.classList.toggle("dark", newTheme === "dark")
+
+    document.documentElement.classList.remove("light", "dark") // 🔥 nettoie
+    document.documentElement.classList.add(newTheme) // 🔥 applique bien
+
     localStorage.setItem("theme", newTheme)
   }
 

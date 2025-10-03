@@ -61,7 +61,7 @@ export default function Skills() {
       <div className="flex justify-center mt-12">
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 dark:bg-green-500 text-white rounded-lg shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 dark:bg-green-500 text-white rounded-full shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
         >
           Me contacter <FaArrowRight />
         </a>

@@ -1,7 +1,8 @@
 "use client"
+
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { FaUser,FaArrowRight } from "react-icons/fa"
+import { FaUser, FaArrowRight } from "react-icons/fa"
 
 export default function About() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +15,7 @@ export default function About() {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex flex-col items-center mb-8"
+        className="flex flex-col items-center mb-12"
       >
         <FaUser size={50} className="text-blue-600 dark:text-blue-400 mb-3" />
         <h1 className="text-3xl font-bold text-blue-600 dark:text-blue-400 text-center">À propos de moi</h1>
@@ -25,39 +26,41 @@ export default function About() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="flex flex-col md:flex-row items-center gap-8 max-w-5xl w-full"
+        className="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full"
       >
         {/* Photo */}
         <div className="md:w-1/2 flex justify-center">
           <img
             src="/myprofil.png"
             alt="Abdoulaye PATAWALA"
-            className="w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-pointer 
-                       hover:scale-105 hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)] 
-                       transition-all duration-500 ease-out"
+            className="w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-full shadow-xl cursor-pointer 
+                       hover:scale-105 hover:shadow-2xl transition-transform duration-500 ease-out"
             onClick={() => setIsOpen(true)}
           />
         </div>
 
         {/* Texte */}
-        <div className="md:w-1/2 space-y-4 md:space-y-6 text-center md:text-left">
+        <div className="md:w-1/2 space-y-6 text-center md:text-left">
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            Je suis <span className="font-semibold">développeur Fullstack</span> spécialisé en <span className="font-semibold">React, Next.js, Node.js</span> pour le web
+            Je suis <span className="font-semibold">Fullstack Developer</span> spécialisé en <span className="font-semibold">React, Next.js, Node.js</span> pour le web
             et <span className="font-semibold">React Native</span> pour le mobile.
           </p>
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            Je suis développeur passionné, et mon rôle est de donner vie à vos idées à travers des sites web modernes, des applications mobiles simples à utiliser, et même des boutiques en ligne pour vendre vos produits facilement.
-            Vous n’avez pas besoin d’être expert en informatique pour travailler avec moi : j’explique chaque étape de manière claire et je construis des solutions qui vous ressemblent. Que vous soyez une entreprise, un indépendant ou que vous vouliez simplement partager votre projet avec le monde, je suis là pour vous aider.
+            Passionné par le développement, je transforme vos idées en sites web modernes, applications mobiles intuitives et boutiques en ligne performantes. 
+            Je rends chaque étape claire et accessible, que vous soyez entreprise, indépendant ou porteur de projet.
           </p>
-                {/* Bouton Me contacter */}
-                <div className="flex justify-center mt-12">
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 dark:bg-green-500 text-white rounded-lg shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
-                  >
-                    Me contacter <FaArrowRight />
-                  </a>
-                </div>
+
+          {/* Bouton Me contacter */}
+          <div className="flex justify-center md:justify-start mt-8">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-green-500 to-green-600 
+                         dark:from-green-600 dark:to-green-500 text-white font-medium rounded-full shadow-lg 
+                         hover:scale-105 hover:brightness-110 transition transform duration-300"
+            >
+              Me contacter <FaArrowRight className="ml-1" />
+            </a>
+          </div>
         </div>
       </motion.div>
 

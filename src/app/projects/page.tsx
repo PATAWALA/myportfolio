@@ -90,7 +90,7 @@ export default function Projects() {
               href={p.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-auto flex items-center justify-center gap-2 bg-blue-600 dark:bg-blue-500 text-white py-2.5 md:py-3 rounded-lg shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition"
+              className="mt-auto flex items-center justify-center gap-2 bg-blue-600 dark:bg-blue-500 text-white py-2.5 md:py-3 rounded-full shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition"
             >
               Voir l'application <FaArrowRight />
             </a>
@@ -101,7 +101,7 @@ export default function Projects() {
       <div className="flex justify-center mt-8 md:mt-10">
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 px-6 py-2.5 md:py-3 bg-green-600 dark:bg-green-500 text-white rounded-lg shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
+          className="inline-flex items-center gap-2 px-6 py-2.5 md:py-3 bg-green-600 dark:bg-green-500 text-white rounded-full shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
         >
           Me contacter directement <FaArrowRight />
         </a>
