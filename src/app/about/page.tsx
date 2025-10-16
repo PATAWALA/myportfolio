@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaUser, FaArrowRight } from "react-icons/fa";
 
 interface AboutProps {
   title: string;
-  role: string;
-  web_stack: string;
-  mobile_stack: string;
+  role:string,
+  web_stack:string,
+  mobile_stack:string;
   description_1: string;
   description_2: string;
   cta_contact: string;
@@ -30,12 +29,7 @@ export default function About({
                  text-gray-900 dark:text-white transition-colors duration-500"
     >
       {/* Titre avec icône */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="flex flex-col items-center mb-12"
-      >
+      <div className="flex flex-col items-center mb-12">
         <FaUser
           size={50}
           className="text-blue-500 dark:text-blue-400 mb-3 drop-shadow-lg"
@@ -43,24 +37,18 @@ export default function About({
         <h1 className="text-4xl font-extrabold text-blue-500 dark:text-blue-400 text-center tracking-tight">
           {title}
         </h1>
-      </motion.div>
+      </div>
 
       {/* Contenu principal */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full"
-      >
+      <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl w-full">
         {/* Photo */}
         <div className="md:w-1/2 flex justify-center">
-          <motion.img
+          <img
             src="/myprofil.png"
             alt="Abdoulaye PATAWALA"
             className="w-72 h-72 sm:w-80 sm:h-80 object-cover rounded-full shadow-2xl 
                        cursor-pointer ring-4 ring-blue-600/30 dark:ring-blue-400/30
                        hover:scale-105 hover:shadow-blue-500/30 transition-transform duration-500 ease-out"
-            whileHover={{ scale: 1.05 }}
             onClick={() => setIsOpen(true)}
           />
         </div>
@@ -76,45 +64,34 @@ export default function About({
 
           {/* Bouton Me contacter */}
           <div className="flex justify-center md:justify-start mt-8">
-            <motion.a
+            <a
               href="#contact"
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-8 py-4
                          bg-gradient-to-r from-blue-600 to-green-500
                          dark:from-green-500 dark:to-blue-600
                          text-white font-semibold rounded-full
                          shadow-lg hover:shadow-blue-500/40
-                         transition-all duration-300 ease-out"
+                         transition-all duration-300 ease-out hover:scale-105"
             >
               {cta_contact} <FaArrowRight className="ml-1" />
-            </motion.a>
+            </a>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Modal photo */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black/90 dark:bg-gray-800/90 flex items-center justify-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
-          >
-            <motion.img
-              src="/myprofil.png"
-              alt="Photo agrandie"
-              className="max-w-4xl max-h-[90vh] rounded-full shadow-2xl ring-8 ring-blue-500/40"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/90 dark:bg-gray-800/90 flex items-center justify-center z-50"
+          onClick={() => setIsOpen(false)}
+        >
+          <img
+            src="/myprofil.png"
+            alt="Photo agrandie"
+            className="max-w-4xl max-h-[90vh] rounded-full shadow-2xl ring-8 ring-blue-500/40"
+          />
+        </div>
+      )}
     </main>
   );
 }

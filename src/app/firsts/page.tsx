@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import Lottie from "lottie-react";
 import { FaDownload } from "react-icons/fa";
 import devAnimation from "../dev-animation.json";
@@ -28,9 +27,6 @@ export default function FirstPage({
   cta_projects,
   cta_download,
 }: FirstPageProps) {
-  const { scrollYProgress } = useScroll();
-  const yParallax = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
   const [particles, setParticles] = useState<Particle[]>([]);
 
   // ✅ Génère les particules uniquement côté client
@@ -45,11 +41,7 @@ export default function FirstPage({
   }, []);
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6 }}
+    <main
       className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden 
                  bg-gradient-to-b from-gray-50 via-gray-100 to-white dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]
                  text-gray-900 dark:text-white transition-colors duration-500"
@@ -77,21 +69,15 @@ export default function FirstPage({
         aria-hidden="true"
       />
 
-      {/* --- Particules flottantes sans erreur SSR --- */}
+      {/* --- Particules flottantes --- */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map((p, i) => (
-          <motion.span
+          <span
             key={i}
-            className="absolute w-[3px] h-[3px] bg-blue-400/30 dark:bg-white/20 rounded-full"
-            style={{ left: p.left, top: p.top }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: p.duration,
-              repeat: Infinity,
-              delay: p.delay,
+            className="absolute w-[3px] h-[3px] bg-blue-400/30 dark:bg-white/20 rounded-full animate-bounce"
+            style={{
+              left: p.left,
+              top: p.top,
             }}
           />
         ))}
@@ -100,29 +86,16 @@ export default function FirstPage({
       {/* --- Contenu principal --- */}
       <div className="relative flex flex-col md:flex-row-reverse items-center justify-center gap-10 w-full max-w-6xl mx-auto z-10">
         {/* Animation Lottie */}
-        <motion.div
-          className="w-full md:w-1/2 flex items-center justify-center order-1 md:order-2"
-          style={{ y: yParallax }}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="w-full md:w-1/2 flex items-center justify-center order-1 md:order-2">
           <Lottie
             animationData={devAnimation}
             loop
             className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[520px] drop-shadow-[0_0_25px_rgba(124,92,255,0.3)]"
           />
-        </motion.div>
+        </div>
 
         {/* Texte */}
-        <motion.div
-          className="w-full md:w-1/2 text-center md:text-left space-y-6 order-2 md:order-1"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        <div className="w-full md:w-1/2 text-center md:text-left space-y-6 order-2 md:order-1">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight">
             {greeting}{" "}
             <span className="bg-gradient-to-r from-purple-600 via-blue-500 to-green-400 bg-clip-text text-transparent">
@@ -166,8 +139,8 @@ export default function FirstPage({
               <span className="relative z-10">{cta_download}</span>
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.main>
+    </main>
   );
 }

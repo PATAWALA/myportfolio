@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { FaWhatsapp, FaFacebookMessenger, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 
 interface ContactProps {
@@ -60,25 +59,15 @@ export default function Contact(props: ContactProps) {
                     text-gray-900 dark:text-white transition-colors duration-500 scroll-mt-24">
 
       {/* Titre */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="flex flex-col items-center mb-12"
-      >
+      <div className="flex flex-col items-center mb-12">
         <FaPhoneAlt size={50} className="text-blue-600 dark:text-blue-400 mb-4" />
         <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 text-center">
           {props.title}
         </h1>
-      </motion.div>
+      </div>
 
       {/* Contenu principal */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="flex flex-col md:flex-row items-start gap-12 w-full max-w-5xl"
-      >
+      <div className="flex flex-col md:flex-row items-start gap-12 w-full max-w-5xl">
         {/* Liens sociaux */}
         <div className="w-full md:w-1/2 flex flex-col gap-6 items-center md:items-start order-1 md:order-2">
           <p className="text-gray-700 dark:text-gray-300 mb-4 text-center md:text-left max-w-md">
@@ -172,7 +161,7 @@ export default function Contact(props: ContactProps) {
             )}
           </form>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
