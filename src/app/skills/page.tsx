@@ -53,7 +53,7 @@ export default function Skills({
           skills_list.map((skill, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={false} // NE PAS rejouer l'animation au rerender
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * i, duration: 0.5 }}
               className="bg-blue-50 dark:bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col justify-between hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 w-full"
@@ -72,7 +72,7 @@ export default function Skills({
               {skill.level && (
                 <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-2">
                   <motion.div
-                    initial={{ width: 0 }}
+                    initial={false}
                     animate={{ width: `${skill.level}%` }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     className="h-full bg-blue-600 dark:bg-blue-400 rounded-full"
@@ -84,7 +84,7 @@ export default function Skills({
               {i < skills_list.length - 1 && (
                 <motion.div
                   className={`w-full h-1 rounded-full ${lineColors[i % lineColors.length]} my-4`}
-                  initial={{ scaleX: 0 }}
+                  initial={false}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 />
@@ -99,9 +99,9 @@ export default function Skills({
 
         {/* Card finale */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false} // NE PAS rejouer l'animation
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 * (skills_list?.length || 0), duration: 0.5 }}
+          transition={{ duration: 0.5 }}
           className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 w-full"
         >
           <FaRocket size={40} className="text-white mb-3 animate-bounce" />
