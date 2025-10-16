@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import {
   FaArrowRight,
   FaCode,
@@ -33,13 +31,6 @@ export default function Skills({
   const defaultIcons = [<FaCode key="1" />, <FaMobileAlt key="2" />, <FaDatabase key="3" />, <FaCloud key="4" />];
   const lineColors = ["bg-blue-500", "bg-green-500", "bg-purple-500", "bg-pink-500", "bg-yellow-500"];
 
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    // On déclenche l'animation une seule fois après le premier rendu
-    setHasAnimated(true);
-  }, []);
-
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-6 py-20
@@ -59,11 +50,8 @@ export default function Skills({
       <div className="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {Array.isArray(skills_list) && skills_list.length > 0 ? (
           skills_list.map((skill, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={hasAnimated ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: hasAnimated ? 0 : 0.05 * i, duration: 0.5 }}
               className="bg-blue-50 dark:bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col justify-between hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 w-full"
             >
               <div className="flex items-center gap-3 mb-3">
@@ -79,10 +67,8 @@ export default function Skills({
               {/* Barre de compétence */}
               {skill.level && (
                 <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-2">
-                  <motion.div
-                    initial={hasAnimated ? false : { width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
+                  <div
+                    style={{ width: `${skill.level}%` }}
                     className="h-full bg-blue-600 dark:bg-blue-400 rounded-full"
                   />
                 </div>
@@ -90,14 +76,11 @@ export default function Skills({
 
               {/* Ligne horizontale décorative */}
               {i < skills_list.length - 1 && (
-                <motion.div
+                <div
                   className={`w-full h-1 rounded-full ${lineColors[i % lineColors.length]} my-4`}
-                  initial={hasAnimated ? false : { scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               )}
-            </motion.div>
+            </div>
           ))
         ) : (
           <p className="text-center text-gray-500 dark:text-gray-400 col-span-full">
@@ -106,12 +89,7 @@ export default function Skills({
         )}
 
         {/* Card finale */}
-        <motion.div
-          initial={hasAnimated ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 w-full"
-        >
+        <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 w-full">
           <FaRocket size={40} className="text-white mb-3 animate-bounce" />
           <h3 className="font-bold text-xl text-white text-center mb-2">
             Et encore plus !
@@ -119,7 +97,7 @@ export default function Skills({
           <p className="text-white text-center">
             De nombreuses autres compétences à découvrir et explorer...
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Bouton Me contacter */}

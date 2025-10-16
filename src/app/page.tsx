@@ -8,12 +8,12 @@ import Projects from "./projects/page";
 import Skills from "./skills/page";
 import Contact from "./contact/page";
 import { useTranslation } from "react-i18next";
-import {Project,Skill} from "./types/projetc";
+import { Project, Skill } from "./types/projetc";
 import LanguageSwitcher from "./components/languageSwitcher";
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useTranslation("common"); // On utilise le namespace "common"
+  const { t, ready } = useTranslation("common"); // ready = traduction chargée
 
   const sectionAnim: Variants = {
     hidden: { opacity: 0, y: 50 },
@@ -24,56 +24,51 @@ export default function Page() {
     },
   };
 
-  const projects_i18n = t("projects.projects_list", { returnObjects: true });
+  // --- Projets ---
+  const projects_i18n = ready ? t("projects.projects_list", { returnObjects: true }) : [];
+  const projects: Project[] = Array.isArray(projects_i18n)
+    ? (projects_i18n as Project[]).map((p) => ({
+        title: p.title,
+        description: p.description,
+        tech: p.tech,
+        desktop_alt: p.desktop_alt,
+        mobile_alt: p.mobile_alt,
+        link: p.link || "#",
+        cta_view: p.cta_view || "Voir l'application",
+        desktop_gif: p.desktop_gif,
+        mobile_gif: p.mobile_gif,
+      }))
+    : [];
 
-// Vérifier que c'est bien un tableau avant de mapper
-const projects: Project[] = Array.isArray(projects_i18n)
-  ? (projects_i18n as Project[]).map((p) => ({
-      title: p.title,
-      description: p.description,
-      tech: p.tech,
-      desktop_alt: p.desktop_alt,
-      mobile_alt: p.mobile_alt,
-      link: p.link || "#", // fallback si link est manquant
-      cta_view: p.cta_view || "Voir l'application", // fallback
-      desktop_gif:p.desktop_gif,
-      mobile_gif:p.mobile_gif
-    }))
-  : [];
+  // --- Compétences ---
+  const skills_i18n = ready ? t("competence.skills_list", { returnObjects: true }) : [];
+  const skills_list: Skill[] = Array.isArray(skills_i18n)
+    ? (skills_i18n as Skill[]).map((s) => ({
+        name: s.name,
+        desc: s.desc,
+      }))
+    : [];
 
-const skills_i18n = t("competence.skills_list", { returnObjects: true });
-
-// Vérifier que c'est un tableau avant de mapper
-const skills_list: Skill[] = Array.isArray(skills_i18n)
-  ? (skills_i18n as Skill[]).map((s) => ({
-      name: s.name,
-      desc: s.desc,
-    }))
-  : [];
-
-
-  const sectionClass =
-    "min-h-[85vh] flex flex-col items-center px-6 py-12 md:py-16 scroll-mt-24";
+  const sectionClass = "min-h-[85vh] flex flex-col items-center px-6 py-12 md:py-16 scroll-mt-24";
 
   return (
     <>
       {/* Section Accueil */}
-
-    <motion.section
+      <motion.section
         id="home"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={sectionAnim}
       >
-      <FirstPage
-        greeting={t("home.greeting")}
-        description={t("home.description")}
-        subtext={t("home.subtext")}
-        cta_projects={t("home.cta_projects")}
-        cta_download={t("home.cta_download")}
-      />
-    </motion.section>
+        <FirstPage
+          greeting={t("home.greeting")}
+          description={t("home.description")}
+          subtext={t("home.subtext")}
+          cta_projects={t("home.cta_projects")}
+          cta_download={t("home.cta_download")}
+        />
+      </motion.section>
 
       {/* Section À propos */}
       <motion.section
@@ -104,29 +99,37 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
         className={`${sectionClass} bg-gradient-to-b from-gray-50 via-gray-100 to-white
                     dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]`}
       >
-        <Projects
-        title={t("projects.title")}
-        projects_list={projects}
-        cta_contact={t("projects.cta_contact")}
-        />
+        {ready ? (
+          <Projects
+            title={t("projects.title")}
+            projects_list={projects}
+            cta_contact={t("projects.cta_contact")}
+          />
+        ) : (
+          <p className="text-center py-20 text-gray-500 dark:text-gray-400">
+            Chargement des projets...
+          </p>
+        )}
       </motion.section>
 
       {/* Section Compétences */}
-      <motion.section
+      <section
         id="skills"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={sectionAnim}
-        className={`${sectionClass}  bg-gradient-to-b from-gray-50 via-gray-100 to-white
+        className={`${sectionClass} bg-gradient-to-b from-gray-50 via-gray-100 to-white
                     dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]`}
       >
-        <Skills
-         title={t("competence.title")}
-         skills_list={skills_list}
-         cta_contact={t("competence.cta_contact")}
-        />
-      </motion.section>
+        {ready ? (
+          <Skills
+            title={t("competence.title")}
+            skills_list={skills_list}
+            cta_contact={t("competence.cta_contact")}
+          />
+        ) : (
+          <p className="text-center py-20 text-gray-500 dark:text-gray-400">
+            Chargement des compétences...
+          </p>
+        )}
+      </section>
 
       {/* Section Contact */}
       <motion.section
@@ -138,21 +141,27 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
         className={`${sectionClass} bg-gradient-to-b from-gray-50 via-gray-100 to-white
                     dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]`}
       >
-        <Contact
-          title={t("contact.title")}
-          description={t("contact.description")}
-          form_description={t("contact.form_description")}
-          form_name={t("contact.form_name")}
-          form_email={t("contact.form_email")}
-          form_message={t("contact.form_message")}
-          form_submit={t("contact.form_submit")}
-          form_sending={t("contact.form_sending")}
-          status_success={t("contact.status_success")}
-          status_error={t("contact.status_error")}
-          cta_whatsapp={t("contact.cta_whatsapp")}
-          cta_facebook={t("contact.cta_facebook")}
-          cta_linkedin={t("contact.cta_linkedin")}
-        />
+        {ready ? (
+          <Contact
+            title={t("contact.title")}
+            description={t("contact.description")}
+            form_description={t("contact.form_description")}
+            form_name={t("contact.form_name")}
+            form_email={t("contact.form_email")}
+            form_message={t("contact.form_message")}
+            form_submit={t("contact.form_submit")}
+            form_sending={t("contact.form_sending")}
+            status_success={t("contact.status_success")}
+            status_error={t("contact.status_error")}
+            cta_whatsapp={t("contact.cta_whatsapp")}
+            cta_facebook={t("contact.cta_facebook")}
+            cta_linkedin={t("contact.cta_linkedin")}
+          />
+        ) : (
+          <p className="text-center py-20 text-gray-500 dark:text-gray-400">
+            Chargement du formulaire de contact...
+          </p>
+        )}
       </motion.section>
     </>
   );
