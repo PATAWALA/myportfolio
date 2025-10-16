@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
   FaArrowRight,
   FaCode,
@@ -32,6 +33,13 @@ export default function Skills({
   const defaultIcons = [<FaCode key="1" />, <FaMobileAlt key="2" />, <FaDatabase key="3" />, <FaCloud key="4" />];
   const lineColors = ["bg-blue-500", "bg-green-500", "bg-purple-500", "bg-pink-500", "bg-yellow-500"];
 
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    // On déclenche l'animation une seule fois après le premier rendu
+    setHasAnimated(true);
+  }, []);
+
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-center px-6 py-20
@@ -53,9 +61,9 @@ export default function Skills({
           skills_list.map((skill, i) => (
             <motion.div
               key={i}
-              initial={false} // NE PAS rejouer l'animation au rerender
+              initial={hasAnimated ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.05 * i, duration: 0.5 }}
+              transition={{ delay: hasAnimated ? 0 : 0.05 * i, duration: 0.5 }}
               className="bg-blue-50 dark:bg-gray-800 rounded-2xl shadow-lg p-6 flex flex-col justify-between hover:shadow-2xl transition-transform duration-300 hover:-translate-y-2 w-full"
             >
               <div className="flex items-center gap-3 mb-3">
@@ -72,7 +80,7 @@ export default function Skills({
               {skill.level && (
                 <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-2">
                   <motion.div
-                    initial={false}
+                    initial={hasAnimated ? false : { width: 0 }}
                     animate={{ width: `${skill.level}%` }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     className="h-full bg-blue-600 dark:bg-blue-400 rounded-full"
@@ -84,7 +92,7 @@ export default function Skills({
               {i < skills_list.length - 1 && (
                 <motion.div
                   className={`w-full h-1 rounded-full ${lineColors[i % lineColors.length]} my-4`}
-                  initial={false}
+                  initial={hasAnimated ? false : { scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 />
@@ -99,7 +107,7 @@ export default function Skills({
 
         {/* Card finale */}
         <motion.div
-          initial={false} // NE PAS rejouer l'animation
+          initial={hasAnimated ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center hover:scale-105 transition-transform duration-300 w-full"
