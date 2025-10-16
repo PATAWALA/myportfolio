@@ -1,7 +1,8 @@
 "use client";
 
-import { FaArrowRight, FaDesktop } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { FaArrowRight, FaDesktop, FaRocket } from "react-icons/fa";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 import { useInView } from "../hooks/useInview";
 
 interface Project {
@@ -24,10 +25,20 @@ interface ProjectsProps {
 
 export default function Projects({ title, projects_list, cta_contact }: ProjectsProps) {
   const { ref, isInView } = useInView(0.2);
+  const controls = useAnimation();
+
+  // Démarre l'animation des compteurs quand la section est visible
+  useEffect(() => {
+    if (isInView) controls.start("visible");
+  }, [isInView, controls]);
 
   return (
-    <main className="min-h-screen px-6 py-12 md:py-16 bg-gray-50 dark:bg-gray-900 scroll-mt-24">
-      
+    <div
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20 overflow-hidden
+                 bg-gradient-to-b from-gray-50 via-gray-100 to-white
+                 dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]
+                 text-gray-900 dark:text-white transition-colors duration-500 scroll-mt-24"
+    >
       {/* Titre */}
       <motion.div
         ref={ref}
@@ -48,73 +59,111 @@ export default function Projects({ title, projects_list, cta_contact }: Projects
         initial={{ opacity: 0, scale: 0.8 }}
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="grid gap-8 sm:grid-cols-1 md:grid-cols-2"
+        className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 w-full max-w-6xl"
       >
-        {projects_list.map((p, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.2, duration: 0.6 }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-700 p-5 md:p-6 flex flex-col overflow-hidden hover:shadow-2xl transition-transform duration-300"
-          >
-            {/* Titre + description */}
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">{p.title}</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">{p.description}</p>
+        {projects_list?.length ? (
+          <>
+            {projects_list.map((p, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2, duration: 0.6 }}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-700 p-5 md:p-6 flex flex-col overflow-hidden hover:shadow-2xl transition-transform duration-300"
+              >
+                {/* Titre + description */}
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">{p.title}</h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{p.description}</p>
 
-            {/* Tech badges */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {p.tech.map((t, idx) => (
-                <span
-                  key={idx}
-                  className="px-2 py-1 bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-200 text-sm rounded-full shadow-sm"
+                {/* Tech badges */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {p.tech.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-200 text-sm rounded-full shadow-sm"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* GIF desktop et mobile */}
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                  <div className="w-full md:w-3/4 max-w-full rounded-xl overflow-hidden shadow-lg">
+                    <img src={p.desktop_gif} alt={p.desktop_alt} className="w-full h-auto object-contain" />
+                  </div>
+                  <div className="w-36 md:w-48 rounded-xl overflow-hidden shadow-lg">
+                    <img src={p.mobile_gif} alt={p.mobile_alt} className="w-full h-auto object-contain" />
+                  </div>
+                </div>
+
+                {/* Bouton CTA */}
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 text-lg font-semibold rounded-full overflow-hidden
+                             bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-[0_0_25px_rgba(124,92,255,0.4)]
+                             transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(124,92,255,0.6)]"
                 >
-                  {t}
-                </span>
-              ))}
-            </div>
+                  <span className="relative z-10">{p.cta_view}</span>
+                </a>
+              </motion.div>
+            ))}
 
-            {/* GIF desktop et mobile */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
-              <div className="w-full md:w-3/4 max-w-full rounded-xl overflow-hidden shadow-lg">
-                <img
-                  src={p.desktop_gif}
-                  alt={p.desktop_alt}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div className="w-36 md:w-48 rounded-xl overflow-hidden shadow-lg">
-                <img
-                  src={p.mobile_gif}
-                  alt={p.mobile_alt}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Bouton CTA */}
-            <a
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto flex items-center justify-center gap-2 bg-blue-600 dark:bg-blue-500 text-white py-2.5 md:py-3 rounded-full shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition"
+            {/* Nouvelle card "projets en cours" */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: projects_list.length * 0.2, duration: 0.6 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-700 p-6 flex flex-col items-center justify-center hover:shadow-2xl transition-transform duration-300"
             >
-              {p.cta_view} <FaArrowRight />
-            </a>
-          </motion.div>
-        ))}
+              <FaRocket size={50} className="text-blue-500 dark:text-blue-400 mb-4" />
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-6 text-center">
+                Et d'autres projets en cours 🚀
+              </h2>
+
+              {/* Compteurs animés */}
+              <div className="flex gap-4">
+                {[1, 2, 3, 4, 5].map((num, i) => (
+                  <motion.div
+                    key={num}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={controls}
+                    variants={{
+                      visible: {
+                        scale: 1,
+                        opacity: 1,
+                        transition: { delay: 0.5 + i * 0.3, type: "spring", stiffness: 200 },
+                      },
+                    }}
+                    className="w-10 h-10 flex items-center justify-center bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-200 rounded-full font-bold shadow-md"
+                  >
+                    {num}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        ) : (
+          <p className="text-center text-gray-500 dark:text-gray-400 col-span-full">
+            Aucun projet disponible pour le moment.
+          </p>
+        )}
       </motion.div>
 
       {/* Bouton pour contacter */}
       <div className="flex justify-center mt-10">
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 dark:bg-green-500 text-white rounded-full shadow hover:bg-green-700 dark:hover:bg-green-600 transition"
+          className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-full overflow-hidden
+                     bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-[0_0_25px_rgba(0,212,255,0.25)]
+                     transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(0,212,255,0.4)]"
         >
-          {cta_contact} <FaArrowRight />
+          {cta_contact} <FaArrowRight className="ml-1" />
         </a>
       </div>
-    </main>
+    </div>
   );
 }

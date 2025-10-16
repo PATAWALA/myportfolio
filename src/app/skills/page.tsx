@@ -32,7 +32,11 @@ export default function Skills({ title, skills_list, cta_contact }: SkillsProps)
   const lineColors = ["bg-blue-500", "bg-green-500", "bg-purple-500", "bg-pink-500", "bg-yellow-500"];
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-white dark:bg-gray-900 scroll-mt-24">
+    <div className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20
+                    bg-gradient-to-b from-gray-50 via-gray-100 to-white
+                    dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]
+                    text-gray-900 dark:text-white transition-colors duration-500 scroll-mt-24">
+
       {/* Titre */}
       <motion.div
         ref={ref}
@@ -109,11 +113,13 @@ export default function Skills({ title, skills_list, cta_contact }: SkillsProps)
       <div className="flex justify-center mt-16">
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-green-600 dark:bg-green-500 text-white rounded-full shadow hover:bg-green-700 dark:hover:bg-green-600 transition transform hover:scale-105"
+          className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-full overflow-hidden
+                     bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-[0_0_25px_rgba(0,212,255,0.25)]
+                     transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(0,212,255,0.4)]"
         >
-          {cta_contact} <FaArrowRight />
+          {cta_contact} <FaArrowRight className="ml-1" />
         </a>
       </div>
-    </main>
+    </div>
   );
 }

@@ -17,7 +17,7 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="bg-gray-100 dark:bg-gray-900 pt-6 text-center"
+      className="bg-gray-8OO dark:bg-black pt-6 text-center"
       style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 4.5rem)" }}
     >
       <p className="text-gray-600 dark:text-gray-300 mb-4">© 2025 Abdoulaye PATAWALA. Tous droits réservés.</p>

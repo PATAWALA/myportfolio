@@ -28,8 +28,8 @@
         "desktop_alt": "Mbia Crypto Desktop",
         "mobile_alt": "Mbia Crypto Mobile",
         "link": "https://github.com/PATAWALA/MBIA-EXCHANGE-CRYPTO",
-        "desktop_gif":"../../app-desktop-crypto.gif",
-        "mobile_gif":"../../app-mobile-crypto.gif"
+        "desktop_gif": "../../assets/Kipler4.png",
+        "mobile_gif": "../../assets/Kipler3.png"
       },
       {
         "title": "Kipler",
@@ -38,7 +38,9 @@
         "cta_view": "Ver la aplicación",
         "desktop_alt": "Kipler Desktop",
         "mobile_alt": "Kipler Mobile",
-        "link": "https://github.com/PATAWALA/Kipler"
+        "link": "https://github.com/PATAWALA/Kipler",
+        "desktop_gif": "../../assets/Kipler4.png",
+        "mobile_gif": "../../assets/Kipler3.png"
       }
     ],
     "cta_contact": "Contactarme directamente"

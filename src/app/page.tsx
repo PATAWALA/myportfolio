@@ -58,6 +58,14 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
   return (
     <>
       {/* Section Accueil */}
+
+    <motion.section
+        id="home"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={sectionAnim}
+      >
       <FirstPage
         greeting={t("home.greeting")}
         description={t("home.description")}
@@ -65,6 +73,7 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
         cta_projects={t("home.cta_projects")}
         cta_download={t("home.cta_download")}
       />
+    </motion.section>
 
       {/* Section À propos */}
       <motion.section
@@ -73,7 +82,6 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={sectionAnim}
-        className={`${sectionClass} bg-white dark:bg-gray-900`}
       >
         <About
           title={t("about.title")}
@@ -93,7 +101,8 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={sectionAnim}
-        className={`${sectionClass} bg-gray-50 dark:bg-gray-900`}
+        className={`${sectionClass} bg-gradient-to-b from-gray-50 via-gray-100 to-white
+                    dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]`}
       >
         <Projects
         title={t("projects.title")}
@@ -109,7 +118,8 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={sectionAnim}
-        className={`${sectionClass} bg-white dark:bg-gray-900`}
+        className={`${sectionClass}  bg-gradient-to-b from-gray-50 via-gray-100 to-white
+                    dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]`}
       >
         <Skills
          title={t("competence.title")}
@@ -125,7 +135,8 @@ const skills_list: Skill[] = Array.isArray(skills_i18n)
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={sectionAnim}
-        className={`${sectionClass} bg-gray-50 dark:bg-gray-900`}
+        className={`${sectionClass} bg-gradient-to-b from-gray-50 via-gray-100 to-white
+                    dark:from-[#050505] dark:via-[#0b0b0f] dark:to-[#090909]`}
       >
         <Contact
           title={t("contact.title")}
