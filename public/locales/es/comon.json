@@ -1,4 +1,11 @@
 {
+    "navbar": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
      "home": {
     "greeting": "¡Hola 👋, soy",
     "description": "Desarrollador web y móvil apasionado 🚀 — creo aplicaciones modernas, de alto rendimiento y adaptadas a tus necesidades.",
@@ -28,8 +35,8 @@
         "desktop_alt": "Mbia Crypto Desktop",
         "mobile_alt": "Mbia Crypto Mobile",
         "link": "https://github.com/PATAWALA/MBIA-EXCHANGE-CRYPTO",
-        "desktop_gif": "../../assets/Kipler4.png",
-        "mobile_gif": "../../assets/Kipler3.png"
+        "desktop_gif": "../../assets/Crypto-demo.png",
+        "mobile_gif": "../../assets/crypto-demo1.png"
       },
       {
         "title": "Kipler",

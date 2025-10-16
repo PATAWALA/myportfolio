@@ -4,6 +4,7 @@ import { Link as ScrollLink } from "react-scroll"
 import { useTheme } from "./ThemeProvider"
 import { FaHome, FaUser, FaProjectDiagram, FaTools, FaEnvelope } from "react-icons/fa"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 interface Props {
   sidebarOpen: boolean
@@ -12,14 +13,15 @@ interface Props {
 
 export default function MobileSidebar({ sidebarOpen, onClose }: Props) {
   const { theme } = useTheme()
-  const [activeLink, setActiveLink] = useState("home") // état du lien actif
+  const [activeLink, setActiveLink] = useState("home")
+  const { t } = useTranslation("common")
 
   const links = [
-    { name: "Accueil", to: "home", icon: <FaHome /> },
-    { name: "À propos", to: "about", icon: <FaUser /> },
-    { name: "Projets", to: "projects", icon: <FaProjectDiagram /> },
-    { name: "Compétences", to: "skills", icon: <FaTools /> },
-    { name: "Contact", to: "contact", icon: <FaEnvelope /> },
+    { name: t("navbar.home"), to: "home", icon: <FaHome /> },
+    { name: t("navbar.about"), to: "about", icon: <FaUser /> },
+    { name: t("navbar.projects"), to: "projects", icon: <FaProjectDiagram /> },
+    { name: t("navbar.skills"), to: "skills", icon: <FaTools /> },
+    { name: t("navbar.contact"), to: "contact", icon: <FaEnvelope /> },
   ]
 
   return (

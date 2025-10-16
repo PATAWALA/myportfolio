@@ -1,30 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Link as ScrollLink } from "react-scroll"
-import { useTheme } from "./ThemeProvider"
-import { FaMoon, FaSun, FaBars } from "react-icons/fa"
-import MobileSidebar from "./MobileSidebar"
+import { useState, useEffect, useRef } from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { useTheme } from "./ThemeProvider";
+import { FaMoon, FaSun, FaBars } from "react-icons/fa";
+import MobileSidebar from "./MobileSidebar";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme()
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const linkRefs = useRef<HTMLDivElement[]>([])
+  const { theme, toggleTheme } = useTheme();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const linkRefs = useRef<HTMLDivElement[]>([]);
+  const { t } = useTranslation("common");
 
+  // ✅ Les liens sont maintenant traduits avec i18n
   const links = [
-    { name: "Accueil", to: "home" },
-    { name: "À propos", to: "about" },
-    { name: "Projets", to: "projects" },
-    { name: "Compétences", to: "skills" },
-    { name: "Contact", to: "contact" },
-  ]
+    { name: t("navbar.home"), to: "home" },
+    { name: t("navbar.about"), to: "about" },
+    { name: t("navbar.projects"), to: "projects" },
+    { name: t("navbar.skills"), to: "skills" },
+    { name: t("navbar.contact"), to: "contact" },
+  ].filter(link => link && link.name); // sécurité contre undefined
 
-  // Fonction pour mettre à jour l'index actif
   const handleSetActive = (to: string) => {
-    const index = links.findIndex(link => link.to === to)
-    setActiveIndex(index)
-  }
+    const index = links.findIndex((link) => link.to === to);
+    setActiveIndex(index);
+  };
 
   return (
     <nav className="backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-gray-200 dark:border-gray-700">
@@ -39,7 +41,13 @@ export default function Navbar() {
         {/* Liens desktop */}
         <div className="hidden md:flex items-center gap-8 text-lg font-medium relative">
           {links.map((link, i) => (
-            <div key={i} className="relative" ref={el => { if (el) linkRefs.current[i] = el }}>
+            <div
+              key={i}
+              className="relative"
+              ref={(el) => {
+                if (el) linkRefs.current[i] = el;
+              }}
+            >
               <ScrollLink
                 to={link.to}
                 smooth
@@ -109,5 +117,5 @@ export default function Navbar() {
       {/* Sidebar mobile */}
       <MobileSidebar sidebarOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
     </nav>
-  )
+  );
 }

@@ -1,4 +1,11 @@
 {
+    "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
       "home": {
     "greeting": "Hi 👋, I'm",
     "description": "Passionate web & mobile developer 🚀 — I create modern, high-performance applications tailored to your needs.",
@@ -38,7 +45,9 @@
         "cta_view": "View App",
         "desktop_alt": "Kipler Desktop",
         "mobile_alt": "Kipler Mobile",
-        "link": "https://github.com/PATAWALA/Kipler"
+        "link": "https://github.com/PATAWALA/Kipler",
+        "desktop_gif": "../../assets/Crypto-demo.png",
+        "mobile_gif": "../../assets/cryppto.png"
       }
     ],
     "cta_contact": "Contact me directly"

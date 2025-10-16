@@ -67,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-gray-50 dark:bg-gray-900 flex flex-col min-h-screen">
         <ClientWrapper>
           <ThemeProvider>
-              <ClientWrapper>
+            <ClientWrapper>
             <Navbar />
             <main className="flex-1 pt-[64px]">{children}</main>
             <ScrollButton />

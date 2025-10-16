@@ -1,4 +1,11 @@
 {
+    "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
     "home": {
     "greeting": "Salut 👋, je suis",
     "description": "Développeur web & mobile passionné 🚀 — je crée des applications modernes, performantes et adaptées à vos besoins.",
