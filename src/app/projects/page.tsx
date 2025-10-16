@@ -2,7 +2,7 @@
 
 import { FaArrowRight, FaDesktop, FaRocket } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "../hooks/useInview";
 
 interface Project {
@@ -26,8 +26,18 @@ interface ProjectsProps {
 export default function Projects({ title, projects_list, cta_contact }: ProjectsProps) {
   const { ref, isInView } = useInView(0.2);
   const controls = useAnimation();
+  const [counter, setCounter] = useState(1);
 
-  // Démarre l'animation des compteurs quand la section est visible
+  // Incrémentation continue
+  useEffect(() => {
+    if (isInView) {
+      const interval = setInterval(() => {
+        setCounter((prev) => (prev === 5 ? 1 : prev + 1));
+      }, 800); // vitesse du cycle (0.8s entre chaque)
+      return () => clearInterval(interval);
+    }
+  }, [isInView]);
+
   useEffect(() => {
     if (isInView) controls.start("visible");
   }, [isInView, controls]);
@@ -72,11 +82,9 @@ export default function Projects({ title, projects_list, cta_contact }: Projects
                 transition={{ delay: i * 0.2, duration: 0.6 }}
                 className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-700 p-5 md:p-6 flex flex-col overflow-hidden hover:shadow-2xl transition-transform duration-300"
               >
-                {/* Titre + description */}
                 <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">{p.title}</h2>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{p.description}</p>
 
-                {/* Tech badges */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {p.tech.map((t, idx) => (
                     <span
@@ -88,7 +96,6 @@ export default function Projects({ title, projects_list, cta_contact }: Projects
                   ))}
                 </div>
 
-                {/* GIF desktop et mobile */}
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
                   <div className="w-full md:w-3/4 max-w-full rounded-xl overflow-hidden shadow-lg">
                     <img src={p.desktop_gif} alt={p.desktop_alt} className="w-full h-auto object-contain" />
@@ -98,7 +105,6 @@ export default function Projects({ title, projects_list, cta_contact }: Projects
                   </div>
                 </div>
 
-                {/* Bouton CTA */}
                 <a
                   href={p.link}
                   target="_blank"
@@ -112,38 +118,36 @@ export default function Projects({ title, projects_list, cta_contact }: Projects
               </motion.div>
             ))}
 
-            {/* Nouvelle card "projets en cours" */}
+            {/* Nouvelle card avec incrémentation continue */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: projects_list.length * 0.2, duration: 0.6 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-700 p-6 flex flex-col items-center justify-center hover:shadow-2xl transition-transform duration-300"
+              className="relative bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 
+                         dark:from-indigo-700 dark:via-purple-800 dark:to-blue-700
+                         rounded-2xl shadow-2xl p-8 flex flex-col items-center justify-center
+                         overflow-hidden hover:scale-105 transition-transform duration-500"
             >
-              <FaRocket size={50} className="text-blue-500 dark:text-blue-400 mb-4" />
-              <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-6 text-center">
-                Et d'autres projets en cours 🚀
+              {/* effet lumière */}
+              <div className="absolute inset-0 bg-white/10 blur-3xl animate-pulse" />
+
+              <FaRocket size={60} className="text-white mb-4 relative z-10" />
+              <h2 className="text-2xl font-bold text-white mb-6 text-center relative z-10">
+                Bien plus encore 🚀
               </h2>
 
-              {/* Compteurs animés */}
-              <div className="flex gap-4">
-                {[1, 2, 3, 4, 5].map((num, i) => (
-                  <motion.div
-                    key={num}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={controls}
-                    variants={{
-                      visible: {
-                        scale: 1,
-                        opacity: 1,
-                        transition: { delay: 0.5 + i * 0.3, type: "spring", stiffness: 200 },
-                      },
-                    }}
-                    className="w-10 h-10 flex items-center justify-center bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-200 rounded-full font-bold shadow-md"
-                  >
-                    {num}
-                  </motion.div>
-                ))}
-              </div>
+              {/* Chiffre animé avec rebond */}
+              <motion.div
+                key={counter}
+                initial={{ scale: 0, opacity: 0, y: 30 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0, opacity: 0, y: -30 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                className="w-20 h-20 flex items-center justify-center bg-white/20 text-white text-4xl 
+                           rounded-full font-bold shadow-lg relative z-10 backdrop-blur-sm"
+              >
+                {counter}
+              </motion.div>
             </motion.div>
           </>
         ) : (
@@ -153,7 +157,7 @@ export default function Projects({ title, projects_list, cta_contact }: Projects
         )}
       </motion.div>
 
-      {/* Bouton pour contacter */}
+      {/* Bouton Contact */}
       <div className="flex justify-center mt-10">
         <a
           href="#contact"
