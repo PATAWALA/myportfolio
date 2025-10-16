@@ -1,0 +1,80 @@
+{
+      "home": {
+    "greeting": "Hi 👋, I'm",
+    "description": "Passionate web & mobile developer 🚀 — I create modern, high-performance applications tailored to your needs.",
+    "subtext": "Looking for a professional website or an intuitive app? You're in the right place ✅",
+    "cta_projects": "See my projects →",
+    "cta_download": "Download my CV"
+  },
+
+    "about": {
+    "title": "About Me",
+    "role": "Fullstack Developer",
+    "web_stack": "React, Next.js, Node.js",
+    "mobile_stack": "React Native",
+    "description_1": "I am a Fullstack Developer specialized in React, Next.js, Node.js for the web and React Native for mobile apps.",
+    "description_2": "Passionate about development, I turn your ideas into modern websites, intuitive mobile applications, and high-performing online stores. I make each step clear and accessible, whether you are a company, freelancer, or project owner.",
+    "cta_contact": "Contact Me"
+  },
+
+  "projects": {
+    "title": "My Projects",
+    "projects_list": [
+      {
+        "title": "Mbia Crypto",
+        "description": "Blockchain platform enabling crypto exchanges with legal and secure payment systems.",
+        "tech": ["Next.js", "Node.js", "MongoDB", "Blockchain"],
+        "cta_view": "View App",
+        "desktop_alt": "Mbia Crypto Desktop",
+        "mobile_alt": "Mbia Crypto Mobile",
+        "link": "https://github.com/PATAWALA/MBIA-EXCHANGE-CRYPTO",
+        "desktop_gif":"../../app-desktop-crypto.gif",
+        "mobile_gif":"../../app-mobile-crypto.gif"
+      },
+      {
+        "title": "Kipler",
+        "description": "E-commerce application that allows anyone to sell their services easily and quickly.",
+        "tech": ["React Native", "Expo", "Firebase", "Stripe"],
+        "cta_view": "View App",
+        "desktop_alt": "Kipler Desktop",
+        "mobile_alt": "Kipler Mobile",
+        "link": "https://github.com/PATAWALA/Kipler"
+      }
+    ],
+    "cta_contact": "Contact me directly"
+  },
+
+    "competence": {
+    "title": "My Skills",
+    "skills_list": [
+      { "name": "React", "desc": "I use it to create fast and interactive web interfaces." },
+      { "name": "Next.js", "desc": "To have fast and well-structured websites with clean pages." },
+      { "name": "Tailwind & Bootstrap", "desc": "To style my applications easily and make interfaces beautiful." },
+      { "name": "Node.js", "desc": "To manage the backend and make my applications run on the server side." },
+      { "name": "MongoDB", "desc": "To store and manage the data of my applications." },
+      { "name": "Firebase", "desc": "To easily manage databases and mobile/web authentication." },
+      { "name": "React Native", "desc": "To create high-performance mobile applications for Android and iOS." },
+      { "name": "JavaScript", "desc": "Main language to make my applications dynamic and interactive." },
+      { "name": "TypeScript", "desc": "To write safer code and avoid errors in my projects." },
+      { "name": "Postman", "desc": "To test APIs and ensure they work correctly." },
+      { "name": "Figma", "desc": "To create mockups and visualize the interface before development." }
+    ],
+    "cta_contact": "Contact me"
+  },
+
+    "contact": {
+    "title": "Contact Me",
+    "description": "You can contact me directly here or via my social networks below. I will reply as soon as possible!",
+    "form_description": "Send me a message by filling out this form. Feel free to detail your projects or needs; this will help me respond to you personally.",
+    "form_name": "Your Name",
+    "form_email": "Your Email",
+    "form_message": "Your Message",
+    "form_submit": "Send",
+    "form_sending": "Sending...",
+    "status_success": "Thank you, your message has been sent!",
+    "status_error": "Oops! Something went wrong. Please try again later.",
+    "cta_whatsapp": "Message me on WhatsApp",
+    "cta_facebook": "Message me on Facebook",
+    "cta_linkedin": "Message me on LinkedIn"
+  }
+}

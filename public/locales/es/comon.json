@@ -1,0 +1,80 @@
+{
+     "home": {
+    "greeting": "¡Hola 👋, soy",
+    "description": "Desarrollador web y móvil apasionado 🚀 — creo aplicaciones modernas, de alto rendimiento y adaptadas a tus necesidades.",
+    "subtext": "¿Necesitas un sitio web profesional o una aplicación intuitiva? Estás en el lugar correcto ✅",
+    "cta_projects": "Ver mis proyectos →",
+    "cta_download": "Descargar mi CV"
+  },
+
+  "about": {
+    "title": "Sobre mí",
+    "role": "Desarrollador Fullstack",
+    "web_stack": "React, Next.js, Node.js",
+    "mobile_stack": "React Native",
+    "description_1": "Soy un Desarrollador Fullstack especializado en React, Next.js, Node.js para web y React Native para aplicaciones móviles.",
+    "description_2": "Apasionado por el desarrollo, transformo tus ideas en sitios web modernos, aplicaciones móviles intuitivas y tiendas en línea de alto rendimiento. Hago cada paso claro y accesible, ya seas empresa, freelancer o emprendedor.",
+    "cta_contact": "Contáctame"
+  },
+
+  "projects": {
+    "title": "Mis Proyectos",
+    "projects_list": [
+      {
+        "title": "Mbia Crypto",
+        "description": "Plataforma blockchain que permite intercambios de criptomonedas con sistemas de pago legales y seguros.",
+        "tech": ["Next.js", "Node.js", "MongoDB", "Blockchain"],
+        "cta_view": "Ver la aplicación",
+        "desktop_alt": "Mbia Crypto Desktop",
+        "mobile_alt": "Mbia Crypto Mobile",
+        "link": "https://github.com/PATAWALA/MBIA-EXCHANGE-CRYPTO",
+        "desktop_gif":"../../app-desktop-crypto.gif",
+        "mobile_gif":"../../app-mobile-crypto.gif"
+      },
+      {
+        "title": "Kipler",
+        "description": "Aplicación de comercio electrónico que permite a cualquier persona vender sus servicios de manera fácil y rápida.",
+        "tech": ["React Native", "Expo", "Firebase", "Stripe"],
+        "cta_view": "Ver la aplicación",
+        "desktop_alt": "Kipler Desktop",
+        "mobile_alt": "Kipler Mobile",
+        "link": "https://github.com/PATAWALA/Kipler"
+      }
+    ],
+    "cta_contact": "Contactarme directamente"
+  },
+
+    "competence": {
+    "title": "Mis Habilidades",
+    "skills_list": [
+      { "name": "React", "desc": "Lo utilizo para crear interfaces web rápidas e interactivas." },
+      { "name": "Next.js", "desc": "Para tener sitios web rápidos y bien organizados con páginas limpias." },
+      { "name": "Tailwind & Bootstrap", "desc": "Para estilizar mis aplicaciones fácilmente y hacer interfaces bonitas." },
+      { "name": "Node.js", "desc": "Para gestionar el backend y hacer que mis aplicaciones funcionen del lado del servidor." },
+      { "name": "MongoDB", "desc": "Para almacenar y gestionar los datos de mis aplicaciones." },
+      { "name": "Firebase", "desc": "Para gestionar fácilmente bases de datos y autenticación móvil y web." },
+      { "name": "React Native", "desc": "Para crear aplicaciones móviles de alto rendimiento para Android e iOS." },
+      { "name": "JavaScript", "desc": "Lenguaje principal para hacer mis aplicaciones dinámicas e interactivas." },
+      { "name": "TypeScript", "desc": "Para escribir código más seguro y evitar errores en mis proyectos." },
+      { "name": "Postman", "desc": "Para probar APIs y asegurar que funcionen correctamente." },
+      { "name": "Figma", "desc": "Para crear maquetas y visualizar la interfaz antes del desarrollo." }
+    ],
+    "cta_contact": "Contactarme"
+  },
+
+    "contact": {
+    "title": "Contáctame",
+    "description": "Puedes contactarme directamente aquí o a través de mis redes sociales abajo. ¡Te responderé lo antes posible!",
+    "form_description": "Envíame un mensaje completando este formulario. No dudes en detallar tus proyectos o necesidades; esto me ayudará a responderte de manera personalizada.",
+    "form_name": "Tu Nombre",
+    "form_email": "Tu Correo",
+    "form_message": "Tu Mensaje",
+    "form_submit": "Enviar",
+    "form_sending": "Enviando...",
+    "status_success": "¡Gracias, tu mensaje ha sido enviado!",
+    "status_error": "¡Ups! Ocurrió un error. Por favor, inténtalo de nuevo más tarde.",
+    "cta_whatsapp": "Escríbeme en WhatsApp",
+    "cta_facebook": "Escríbeme en Facebook",
+    "cta_linkedin": "Escríbeme en LinkedIn"
+  }
+}

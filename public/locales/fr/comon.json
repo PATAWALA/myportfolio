@@ -1,0 +1,82 @@
+{
+    "home": {
+    "greeting": "Salut 👋, je suis",
+    "description": "Développeur web & mobile passionné 🚀 — je crée des applications modernes, performantes et adaptées à vos besoins.",
+    "subtext": "Besoin d’un site professionnel ou d’une application intuitive ? Vous êtes au bon endroit ✅",
+    "cta_projects": "Voir mes réalisations →",
+    "cta_download": "Télécharger mon CV"
+  },
+
+    "about": {
+    "title": "À propos de moi",
+    "role": "Fullstack Developer",
+    "web_stack": "React, Next.js, Node.js",
+    "mobile_stack": "React Native",
+    "description_1": "Je suis Fullstack Developer spécialisé en React, Next.js, Node.js pour le web et React Native pour le mobile.",
+    "description_2": "Passionné par le développement, je transforme vos idées en sites web modernes, applications mobiles intuitives et boutiques en ligne performantes. Je rends chaque étape claire et accessible, que vous soyez entreprise, indépendant ou porteur de projet.",
+    "cta_contact": "Me contacter"
+  },
+
+    "projects": {
+    "title": "Mes Projets",
+    "projects_list": [
+      {
+        "title": "Mbia Crypto",
+        "description": "Plateforme blockchain permettant des échanges crypto avec des systèmes de paiements légaux et sécurisés.",
+        "tech": ["Next.js", "Node.js", "MongoDB", "Blockchain"],
+        "cta_view": "Voir l'application",
+        "desktop_alt": "Mbia Crypto Desktop",
+        "mobile_alt": "Mbia Crypto Mobile",
+        "link": "https://github.com/PATAWALA/MBIA-EXCHANGE-CRYPTO",
+        "desktop_gif": "../../app-desktop-crypto.gif",
+        "mobile_gif": "../../app-mobile-crypto.gif"
+      },
+      {
+        "title": "Kipler",
+        "description": "Application e-commerce qui permet à tout le monde de vendre ses services facilement et rapidement.",
+        "tech": ["React Native", "Expo", "Firebase", "Stripe"],
+        "cta_view": "Voir l'application",
+        "desktop_alt": "Kipler Desktop",
+        "mobile_alt": "Kipler Mobile",
+        "link": "https://github.com/PATAWALA/Kipler",
+        "desktop_gif": "../../app-desktop-Kipler.gif",
+        "mobile_gif": "../../app-mobile-Kipler.gif"
+      }
+    ],
+    "cta_contact": "Me contacter directement"
+  },
+
+    "competence": {
+    "title": "Mes Compétences",
+    "skills_list": [
+      { "name": "React", "desc": "Je l'utilise pour créer des interfaces web interactives et rapides." },
+      { "name": "Next.js", "desc": "Pour avoir des sites web rapides et bien organisés avec des pages propres." },
+      { "name": "Tailwind & Bootstrap", "desc": "Pour styliser mes applications facilement et rendre les interfaces belles." },
+      { "name": "Node.js", "desc": "Pour gérer le backend et faire fonctionner mes applications côté serveur." },
+      { "name": "MongoDB", "desc": "Pour stocker et gérer les données de mes applications." },
+      { "name": "Firebase", "desc": "Pour gérer facilement les bases de données et l'authentification mobile et web." },
+      { "name": "React Native", "desc": "Pour créer des applications mobiles performantes sur Android et iOS." },
+      { "name": "JavaScript", "desc": "Langage principal pour rendre mes applications dynamiques et interactives." },
+      { "name": "TypeScript", "desc": "Pour écrire du code plus sûr et éviter les erreurs dans mes projets." },
+      { "name": "Postman", "desc": "Pour tester les APIs et s'assurer qu'elles fonctionnent correctement." },
+      { "name": "Figma", "desc": "Pour créer des maquettes et visualiser l'interface avant le développement." }
+    ],
+    "cta_contact": "Me contacter"
+  },
+
+    "contact": {
+    "title": "Contactez-moi",
+    "description": "Vous pouvez me contacter ici directement ou via mes réseaux sociaux ci-dessous. Je vous répondrai le plus rapidement possible !",
+    "form_description": "Envoyez-moi un message en remplissant ce formulaire. N'hésitez pas à détailler vos projets ou besoins, cela m'aidera à vous répondre de façon personnalisée.",
+    "form_name": "Votre nom",
+    "form_email": "Votre email",
+    "form_message": "Votre message",
+    "form_submit": "Envoyer",
+    "form_sending": "Envoi...",
+    "status_success": "Merci, votre message a été envoyé !",
+    "status_error": "Oops ! Une erreur est survenue. Réessayez plus tard.",
+    "cta_whatsapp": "M'écrire sur WhatsApp",
+    "cta_facebook": "M'écrire sur Facebook",
+    "cta_linkedin": "M'écrire sur LinkedIn"
+  }
+}

@@ -1,9 +1,14 @@
+// layout.tsx (Server Component)
 import type { Metadata } from "next";
+import ThemeProvider from "./components/ThemeProvider";
+import ClientWrapper from "./components/ClientWrapper";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ThemeProvider from "./components/ThemeProvider";
+import dynamic from "next/dynamic";
 import ScrollButton from "./components/ScrollButton";
 import "./globals.css";
+
+
 
 const siteUrl = "https://myportfolio-sable-chi-93.vercel.app";
 const socialImage = `${siteUrl}/monprofil.png`;
@@ -59,26 +64,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="fr">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className="bg-gray-50 dark:bg-gray-900 flex flex-col min-h-screen">
-        <ThemeProvider>
-          {/* Navbar fixe */}
-          <Navbar />
-
-          {/* Main: padding-top = hauteur navbar */}
-          <main className="flex-1 pt-[64px] md:pt-[64px] md:pb-0">{children}</main>
-
-          {/* Bouton flèche haut/bas */}
-          <ScrollButton />
-
-          {/* Footer */}
-          <Footer />
-        </ThemeProvider>
+        <ClientWrapper>
+          <ThemeProvider>
+              <ClientWrapper>
+            <Navbar />
+            <main className="flex-1 pt-[64px]">{children}</main>
+            <ScrollButton />
+            <Footer />
+              </ClientWrapper>
+          </ThemeProvider>
+        </ClientWrapper>
       </body>
     </html>
   );

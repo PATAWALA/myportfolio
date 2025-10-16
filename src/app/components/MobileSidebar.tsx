@@ -25,7 +25,7 @@ export default function MobileSidebar({ sidebarOpen, onClose }: Props) {
   return (
     <div
       className={`fixed top-[64px] left-0 h-[calc(100%-64px)] w-64 
-        ${theme === "light" ? "bg-white" : "bg-gray-900"}
+        ${theme === "light" ? "bg-white-800" : "bg-gray-800"}
         shadow-lg transform transition-transform duration-300 z-50
         ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
